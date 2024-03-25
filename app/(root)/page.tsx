@@ -1,3 +1,4 @@
+import { CallToActionSection } from "@/components/sections/landing/callToAction";
 import { CategorySection } from "@/components/sections/landing/category";
 import { DisplayCatalog } from "@/components/sections/landing/displayCatalog";
 import { HeroSection } from "@/components/sections/landing/hero";
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <CategorySection />
       <DisplayCatalog />
+      <CallToActionSection />
       <PromotionSection />
     </>
   );
