@@ -27,14 +27,14 @@ export const ItemCard = ({ item }: ItemCardInterface) => {
                 width={150}
                 height={150}
             />
-            <button
+            <Button
                 onClick={() => setIsFavorite(!isFavorite)}
             >
                 {isFavorite
                     ? <AiFillHeart className='absolute text-xl right-5 top-5' />
                     : <AiOutlineHeart className='absolute text-xl right-5 top-5' />
                 }
-            </button>
+            </Button>
             <p className="text-2xl mt-2 font-semibold">{item.name}</p>
             <p className="text-md mb-3 font-light">{item.name}</p>
             <div className='flex justify-between w-full items-center '>

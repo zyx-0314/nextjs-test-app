@@ -69,7 +69,7 @@ export const ReviewSection = () => {
             >
                 Come and Join
             </h2>
-            <h3 className="text-xl font-bold text-center text-black my-1">
+            <h3 className="text-4xl font-bold text-center text-black my-1">
                 Our Happy Customers
             </h3>
             <div className="w-full p-8 flex flex-col gap-4 items-center justify-center ">
