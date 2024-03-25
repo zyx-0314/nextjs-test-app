@@ -1,5 +1,3 @@
-"use client"
-
 import { ItemCard } from "@/components/oiu/card"
 import { Separator } from "@/components/ui/separator"
 import {
