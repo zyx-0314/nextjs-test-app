@@ -13,7 +13,7 @@ export const HeroSection = () => {
         <p className="mb-2 text-lg text-white font-bold">
           Welcome!
         </p>
-        <h2 className="text-4xl font-bold text-white">
+        <h2 className="text-4xl font-bold text-white text-pretty">
           We serve the Richest Coffee in the City!
         </h2>
         <a
