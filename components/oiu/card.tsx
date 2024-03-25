@@ -1,3 +1,4 @@
+import { CiCoffeeBean } from "react-icons/ci";
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -41,5 +42,49 @@ export const ItemCard = ({ item }: ItemCardInterface) => {
                 <Button className='bg-amber-950 hover:bg-amber-800 text-white p-2 rounded-xl'>Order Now</Button>
             </div>
         </div>
+    )
+}
+
+interface ReviewCardInterface {
+    review: {
+        author: string,
+        image: string,
+        rating: number,
+        content: string
+    },
+    main?: boolean
+}
+
+export const ReviewCard = ({ review, main = false }: ReviewCardInterface) => {
+    return (
+        <>
+            <div className={"flex flex-col items-start bg-orange-100 rounded-lg px-7 py-3 w-1/3 " + (main ? "min-h-64" : "min-h-56")}>
+                <div className="flex flex-row items-center justify-between w-full">
+                    <div className="flex items-center justify-center gap-5 mb-5">
+                        <Image
+                            className="w-20 h-20 object-cover rounded-full"
+                            src={review.image}
+                            alt={review.author}
+                            width={150}
+                            height={150}
+                        />
+                        <p className="text-2xl mt-2 font-semibold">{review.author}</p>
+                    </div>
+                    <div className="flex flex-row">
+                        {
+                            Array.from({ length: 5 - review.rating }).map((_, index) => (
+                                <CiCoffeeBean key={index} className="text-2xl text-orange-300" />
+                            ))
+                        }
+                        {
+                            Array.from({ length: review.rating }).map((_, index) => (
+                                <CiCoffeeBean key={index} className="text-2xl" />
+                            ))
+                        }
+                    </div>
+                </div>
+                <p className="text-md mb-3 font-light line-clamp-3">{review.content}</p>
+            </div>
+        </>
     )
 }
