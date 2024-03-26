@@ -64,11 +64,14 @@ export const ReviewSection = () => {
             <h2
                 className={
                     dancingScript.className +
-                    " text-6xl font-bold text-center text-black my-1"
+                    " text-2xl font-bold text-center text-black my-1"
                 }
             >
                 Come and Join
             </h2>
+            <h3 className="text-xl font-bold text-center text-black my-1">
+                Our Happy Customers
+            </h3>
             <div className="w-full p-8 flex flex-col gap-4 items-center justify-center ">
                 <Carousel>
                     <CarouselContent>
