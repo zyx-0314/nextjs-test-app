@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
+
+import { C_Header } from "@/components/elements/header/page";
+import { FooterPage } from "@/components/elements/footer/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +26,9 @@ export default function RootLayout({
           " w-full bg-gradient-to-r from-orange-200 to-orange-100 bg-cover"
         }
       >
+        <C_Header />
         {children}
+        <FooterPage />
       </body>
     </html>
   );
