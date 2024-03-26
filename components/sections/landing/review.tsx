@@ -8,6 +8,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
+import { CommentCreationModal } from "@/components/modals/comment-creation-modal";
 
 const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
@@ -68,37 +69,9 @@ export const ReviewSection = () => {
             >
                 Come and Join
             </h2>
-            <div className="w-full p-8">
+            <div className="w-full p-8 flex flex-col gap-4 items-center justify-center ">
                 <Carousel>
                     <CarouselContent>
-                        {/* <CarouselItem
-                            className="flex justify-center items-center w-full h-full gap-6"
-                        >
-                            <ReviewCard review={
-                                {
-                                    author: "John Doe",
-                                    image: "https://via.placeholder.com/300",
-                                    rating: 4,
-                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                }
-                            } />
-                            <ReviewCard main review={
-                                {
-                                    author: "John Doe",
-                                    image: "https://via.placeholder.com/300",
-                                    rating: 2,
-                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                                }
-                            } />
-                            <ReviewCard review={
-                                {
-                                    author: "John Doe",
-                                    image: "https://via.placeholder.com/300",
-                                    rating: 5,
-                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                                }
-                            } />
-                        </CarouselItem> */}
                         {reviews.map((review, index) => (
                             <CarouselItem
                                 key={index}
@@ -108,6 +81,7 @@ export const ReviewSection = () => {
                                     <ReviewCard
                                         key={i}
                                         review={r}
+                                        main={i === 1}
                                     />
                                 ))}
                             </CarouselItem>
@@ -116,7 +90,7 @@ export const ReviewSection = () => {
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
-
+                <CommentCreationModal />
             </div>
         </section>
     )
