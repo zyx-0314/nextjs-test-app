@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { Button } from '@/components/ui/button';
 
 interface ItemCardInterface {
     item: {
@@ -37,7 +38,7 @@ export const ItemCard = ({ item }: ItemCardInterface) => {
             <p className="text-md mb-3 font-light">{item.name}</p>
             <div className='flex justify-between w-full items-center '>
                 <p className="text-xl font-bold">$ {item.price}</p>
-                <button className='bg-orange-950 text-white p-2 rounded-md'>Order Now</button>
+                <Button className='bg-amber-950 hover:bg-amber-800 text-white p-2 rounded-xl'>Order Now</Button>
             </div>
         </div>
     )
