@@ -1,3 +1,6 @@
+import { Dancing_Script } from "next/font/google";
+
+import { ReviewCard } from "@/components/oiu/card";
 import {
     Carousel,
     CarouselContent,
@@ -6,18 +9,109 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 
+const dancingScript = Dancing_Script({ subsets: ["latin"] });
 
 export const ReviewSection = () => {
+
+    const reviews = [
+        [
+            {
+                author: "John Doe",
+                image: "https://via.placeholder.com/300",
+                rating: 4,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+                author: "Mitch Doe",
+                image: "https://via.placeholder.com/300",
+                rating: 2,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut labore et dolore magna aliqua."
+            },
+            {
+                author: "Jane Doe",
+                image: "https://via.placeholder.com/300",
+                rating: 5,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do ."
+            },
+        ],
+        [
+            {
+                author: "John Lee",
+                image: "https://via.placeholder.com/300",
+                rating: 1,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+            {
+                author: "Mitch Yu",
+                image: "https://via.placeholder.com/300",
+                rating: 2,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut labore et dolore magna aliqua."
+            },
+            {
+                author: "Jane Lee Song",
+                image: "https://via.placeholder.com/300",
+                rating: 3,
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            },
+        ]
+    ]
+
     return (
         <section
-            className="flex flex-col items-center justify-center "
+            className="flex flex-col items-center justify-center p-10"
         >
-            <div className="container">
+            <h2
+                className={
+                    dancingScript.className +
+                    " text-6xl font-bold text-center text-black my-1"
+                }
+            >
+                Come and Join
+            </h2>
+            <div className="w-full p-8">
                 <Carousel>
                     <CarouselContent>
-                        <CarouselItem>...</CarouselItem>
-                        <CarouselItem>...</CarouselItem>
-                        <CarouselItem>...</CarouselItem>
+                        {/* <CarouselItem
+                            className="flex justify-center items-center w-full h-full gap-6"
+                        >
+                            <ReviewCard review={
+                                {
+                                    author: "John Doe",
+                                    image: "https://via.placeholder.com/300",
+                                    rating: 4,
+                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                }
+                            } />
+                            <ReviewCard main review={
+                                {
+                                    author: "John Doe",
+                                    image: "https://via.placeholder.com/300",
+                                    rating: 2,
+                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                                }
+                            } />
+                            <ReviewCard review={
+                                {
+                                    author: "John Doe",
+                                    image: "https://via.placeholder.com/300",
+                                    rating: 5,
+                                    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                }
+                            } />
+                        </CarouselItem> */}
+                        {reviews.map((review, index) => (
+                            <CarouselItem
+                                key={index}
+                                className="flex justify-center items-center w-full h-full gap-6"
+                            >
+                                {review.map((r, i) => (
+                                    <ReviewCard
+                                        key={i}
+                                        review={r}
+                                    />
+                                ))}
+                            </CarouselItem>
+                        ))}
                     </CarouselContent>
                     <CarouselPrevious />
                     <CarouselNext />

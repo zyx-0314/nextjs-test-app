@@ -1,3 +1,5 @@
+"use client"
+
 import { C_Header } from "@/components/elements/header/page";
 
 import { CategorySection } from "@/components/sections/landing/category";
