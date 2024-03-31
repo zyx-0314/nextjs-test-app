@@ -13,7 +13,10 @@ export const CallToActionSection = () => {
                     Check out our best coffee betans
                 </h3>
                 <Button
-                    className="bg-amber-950 text-white text-xl p-6 hover:bg-amber-900 rounded-3xl"
+                    variant="coffeeDark"
+                    rounded="3xl"
+                    size="xl"
+                    textSize="xl"
                 >
                     Explore our products
                 </Button>
