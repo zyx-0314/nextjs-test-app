@@ -1,3 +1,6 @@
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
 import {
     Dialog,
     DialogContent,
@@ -6,15 +9,15 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
 
 export const CommentCreationModal = () => {
     return (
         <Dialog>
-            <DialogTrigger>
-                <Button>Why not, Leave Yours?</Button>
+            <DialogTrigger asChild>
+                <Button
+                >
+                    Why not, Leave Yours?
+                </Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
