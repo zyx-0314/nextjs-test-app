@@ -22,6 +22,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         coffeeDark: "bg-amber-950 hover:bg-amber-800 text-white",
         coffeeLight: "bg-amber-200 hover:bg-amber-300 text-black",
+        blank: "",
       },
       size: {
         default: "h-10 px-4 py-2",

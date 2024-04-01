@@ -1,5 +1,6 @@
 import { Delius_Unicase } from "next/font/google";
 
+import { Link } from "@/components/oiu/link";
 import { Search } from "@/components/oiu/search";
 
 const delius = Delius_Unicase({
@@ -24,19 +25,19 @@ export const C_Header = () => {
       <nav className="w-2/5 flex self-center">
         <ul className="flex flex-row space-x-5 justify-around w-full">
           <li>
-            <a href="/about">HOME</a>
+            <Link href="/">HOME</Link>
           </li>
           <li>
-            <a href="/contact">COFFEE</a>
+            <Link href="">COFFEE</Link>
           </li>
           <li>
-            <a href="/contact">PASTRIES</a>
+            <Link href="">PASTRIES</Link>
           </li>
           <li>
-            <a href="/contact">VISIT US</a>
+            <Link href="">VISIT US</Link>
           </li>
           <li>
-            <a href="/contact">KNOW US</a>
+            <Link href="">KNOW US</Link>
           </li>
         </ul>
       </nav>

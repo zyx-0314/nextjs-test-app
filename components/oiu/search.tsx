@@ -18,8 +18,10 @@ export function Search() {
                 hidden={search}
             />
             <Button
-                className="border border-gray-300 rounded-lg p-1.5 ml-2"
+                className="border border-gray-300 px-3 py-2 ml-2"
                 onClick={() => setSearch(!search)}
+                variant="blank"
+                rounded="full"
             >
                 <FaSearch />
             </Button>
