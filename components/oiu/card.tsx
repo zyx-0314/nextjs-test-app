@@ -27,19 +27,20 @@ export const ItemCard = ({ item }: ItemCardInterface) => {
                 width={150}
                 height={150}
             />
-            <Button
+            <div
                 onClick={() => setIsFavorite(!isFavorite)}
+                className='absolute text-xl right-5 top-5 cursor-pointer'
             >
                 {isFavorite
-                    ? <AiFillHeart className='absolute text-xl right-5 top-5' />
-                    : <AiOutlineHeart className='absolute text-xl right-5 top-5' />
+                    ? <AiFillHeart />
+                    : <AiOutlineHeart />
                 }
-            </Button>
+            </div>
             <p className="text-2xl mt-2 font-semibold">{item.name}</p>
             <p className="text-md mb-3 font-light">{item.name}</p>
             <div className='flex justify-between w-full items-center '>
                 <p className="text-xl font-bold">$ {item.price}</p>
-                <Button className='bg-amber-950 hover:bg-amber-800 text-white p-2 rounded-xl'>Order Now</Button>
+                <Button className=''>Order Now</Button>
             </div>
         </div>
     )

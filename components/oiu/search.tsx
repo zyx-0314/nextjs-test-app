@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
+import { Button } from '@/components/ui/button';
+
 export function Search() {
 
     const [search, setSearch] = useState<boolean>(false);
@@ -15,12 +17,12 @@ export function Search() {
                 className='border border-gray-300 rounded-lg p-0.5'
                 hidden={search}
             />
-            <button
+            <Button
                 className="border border-gray-300 rounded-lg p-1.5 ml-2"
                 onClick={() => setSearch(!search)}
             >
                 <FaSearch />
-            </button>
+            </Button>
         </div>
     )
 
