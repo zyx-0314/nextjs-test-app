@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 
+import { CartProvider } from "@/provider/cart-data";
 import { C_Header } from "@/components/elements/header/page";
 import { FooterPage } from "@/components/elements/footer/page";
 
@@ -26,9 +27,11 @@ export default function RootLayout({
           " w-full bg-gradient-to-r from-orange-200 to-orange-100 bg-cover"
         }
       >
-        <C_Header />
-        {children}
-        <FooterPage />
+        <CartProvider>
+          <C_Header />
+          {children}
+          <FooterPage />
+        </CartProvider>
       </body>
     </html>
   );

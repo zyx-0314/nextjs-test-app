@@ -14,14 +14,13 @@ export function Search() {
             <input
                 type="text"
                 placeholder="Search"
-                className='border border-gray-300 rounded-lg p-0.5'
+                className='border border-gray-300 rounded-3xl p-0.5 pl-4 text-black font-sans'
                 hidden={search}
             />
             <Button
-                className="border border-gray-300 px-3 py-2 ml-2"
+                className="px-2 py-2 ml-2"
                 onClick={() => setSearch(!search)}
                 variant="blank"
-                rounded="full"
             >
                 <FaSearch />
             </Button>

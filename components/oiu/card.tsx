@@ -1,8 +1,15 @@
-import { CiCoffeeBean } from "react-icons/ci";
+"use client"
+
 import Image from 'next/image';
+
 import { useState } from 'react';
 
+import { CiCoffeeBean } from "react-icons/ci";
+import { BiUpArrowCircle } from "react-icons/bi";
+import { MdOutlineCancel } from "react-icons/md";
+import { BiDownArrowCircle } from "react-icons/bi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+
 import { Button } from '@/components/ui/button';
 
 interface ItemCardInterface {
@@ -11,10 +18,11 @@ interface ItemCardInterface {
         price: number,
         image: string,
         favorite: boolean
-    }
+    },
+    addToCart: (a: any) => void
 }
 
-export const ItemCard = ({ item }: ItemCardInterface) => {
+export const ItemCard = ({ item, addToCart }: ItemCardInterface) => {
 
     const [isFavorite, setIsFavorite] = useState(item.favorite)
 
@@ -40,7 +48,7 @@ export const ItemCard = ({ item }: ItemCardInterface) => {
             <p className="text-md mb-3 font-light">{item.name}</p>
             <div className='flex justify-between w-full items-center '>
                 <p className="text-xl font-bold">$ {item.price}</p>
-                <Button className=''>Order Now</Button>
+                <Button onClick={() => addToCart(item)}>Order Now</Button>
             </div>
         </div>
     )
@@ -86,6 +94,89 @@ export const ReviewCard = ({ review, main = false }: ReviewCardInterface) => {
                 </div>
                 <p className="text-md mb-3 font-light line-clamp-3">{review.content}</p>
             </div>
+        </>
+    )
+}
+
+interface OrderCardInterface {
+    orderList: {
+        id: number,
+        name: string,
+        price: number,
+        quantity: number,
+    }[],
+    setOrderList: any,
+}
+
+export const OrderCard = ({ orderList, setOrderList }: OrderCardInterface) => {
+
+    const modifyOrderQuantity = (itemId: number, value: number) => {
+        let updatedItems = orderList.map(order =>
+            order.id === itemId ? { ...order, quantity: value } : order
+        );
+
+        setOrderList(updatedItems);
+    };
+
+    // remove order from order list
+    const removeOrder = (itemId: number) => {
+        let updatedItems = orderList.filter(order => order.id !== itemId);
+        setOrderList(updatedItems);
+    };
+
+    return (
+        <>
+            {orderList.map((order, index) => (
+                <div
+                    className="flex flex-row items-center justify-between bg-gray-100 rounded-sm w-full my-4"
+                    key={index}
+                >
+                    <Image
+                        className="w-24 h-24 object-cover p-2"
+                        src={'https://via.placeholder.com/300'}
+                        alt={order.name}
+                        width={200}
+                        height={200}
+                    />
+                    <div className="flex flex-col w-full px-2">
+                        <div className="flex items-center justify-between text-lg text-black">
+                            <p className="font-semibold">{order.name}</p>
+                            <div className="flex justify-center items-center gap-1">
+                                <BiDownArrowCircle
+                                    className='hover:cursor-pointer'
+                                    onClick={() => modifyOrderQuantity(order.id, (order.quantity - 1) < 1 ? 1 : order.quantity - 1)}
+                                />
+                                {order.quantity}
+                                <BiUpArrowCircle
+                                    className='hover:cursor-pointer'
+                                    onClick={() => modifyOrderQuantity(order.id, order.quantity + 1)}
+                                />
+                            </div>
+                        </div>
+                        <div className="flex justify-between">
+                            <p className="text-md font-light">$ {order.price}</p>
+                            <p className="text-md font-light">X</p>
+                            <p className="text-md font-light">{order.quantity}</p>
+                            <p className="text-md font-light">=</p>
+                            <p className="text-md font-light">{order.price * order.quantity}</p>
+                        </div>
+                        <div
+                            className="w-full flex justify-end"
+                            style={{
+                                top: '-70px',
+                                right: '-15px',
+                                position: 'relative'
+                            }}
+                        >
+                            <MdOutlineCancel
+                                className='text-red-600 text-xl hover:cursor-pointer'
+                                onClick={() => removeOrder(order.id)}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            ))}
         </>
     )
 }

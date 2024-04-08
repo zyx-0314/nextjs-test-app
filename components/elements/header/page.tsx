@@ -2,6 +2,7 @@ import { Delius_Unicase } from "next/font/google";
 
 import { Link } from "@/components/oiu/link";
 import { Search } from "@/components/oiu/search";
+import { OrderList } from "../orderList/page";
 
 const delius = Delius_Unicase({
   weight: "700",
@@ -41,8 +42,9 @@ export const C_Header = () => {
           </li>
         </ul>
       </nav>
-      <div className="search self-center w-1/5">
+      <div className="search self-center w-1/5 flex justify-end">
         <Search />
+        <OrderList />
       </div>
     </header>
   );
