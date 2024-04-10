@@ -51,3 +51,21 @@ export async function POST(
         return new NextResponse("Internal_Error", { status: 500 })
     }
 }
+
+export async function GET(
+    request: NextRequest
+) {
+    try {
+        await dbConnection();
+
+        const items = await Item.find({})
+
+        console.log("ITEMS_GET_SUCCESS")
+
+        return new NextResponse(JSON.stringify(items), { status: 200 })
+
+    } catch (error) {
+        console.log("ITEMS_GET_ERROR: ", error)
+        return new NextResponse("Internal_Error", { status: 500 })
+    }
+}
