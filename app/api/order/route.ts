@@ -51,3 +51,32 @@ export async function POST(
         return new NextResponse("Internal_Error", { status: 500 })
     }
 }
+
+export async function PUT(
+    request: NextRequest
+) {
+    console.log("PUT")
+    try {
+        const body = await request.json()
+        await dbConnection();
+
+        const { id, status } = body
+
+        if (!id || !status) {
+            return new NextResponse("Invalid_Request, Data should have id and status", { status: 400 })
+        }
+
+        await Item.findByIdAndUpdate(id, {
+            status,
+            updatedAt: new Date()
+        })
+
+        console.log("ITEMS_PUT_SUCCESS")
+
+        return new NextResponse("Order updated successfully", { status: 200 })
+
+    } catch (error) {
+        console.log("ITEMS_PUT_ERROR: ", error)
+        return new NextResponse("Internal_Error", { status: 500 })
+    }
+}
