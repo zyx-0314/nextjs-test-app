@@ -2,7 +2,6 @@ import { Item } from "@/models/item"
 import { dbConnection } from "@/db/mongodb"
 import { NextRequest, NextResponse } from "next/server"
 
-
 export async function POST(
     request: NextRequest
 ) {
