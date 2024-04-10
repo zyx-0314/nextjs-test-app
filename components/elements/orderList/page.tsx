@@ -26,6 +26,16 @@ export const OrderList = () => {
         else setTotalPrice(cartData.reduce((total, order) => total + (order.price * order.quantity), 0));
     }, [cartData])
 
+    function CheckOut() {
+        try {
+            // Call API to checkout
+            // If success, clear cart
+            setCartData([]);
+        } catch (error) {
+            alert("Failed to checkout, please try again later");
+        }
+    }
+
     return (
         <Sheet>
             <SheetTrigger><AiOutlineShoppingCart className="text-xl mx-3" /></SheetTrigger>
@@ -41,7 +51,12 @@ export const OrderList = () => {
                     >
                         <div className="flex w-full justify-between">
                             <p className="text-xl font-bold">Total: $ {totalPrice}</p>
-                            <button className="bg-blue-500 text-white rounded-lg px-3 py-1">Checkout</button>
+                            <button
+                                className="bg-blue-500 text-white rounded-lg px-3 py-1"
+                                onClick={CheckOut}
+                            >
+                                Checkout
+                            </button>
                         </div>
                     </SheetFooter>
                 </SheetHeader>
